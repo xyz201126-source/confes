@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confession untuk Bilqis - Tema Bunga dan Kembang Api</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f7, #ffb3d9), url('https://example.com/flowers-bg.jpg') no-repeat center center fixed; /* Ganti dengan gambar bunga asli */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid #ff69b4;
+        }
+        h1 {
+            color: #ff1493;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .romantic-message {
+            font-size: 1.2em;
+            color: #8b008b;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 2px solid #ffb3d9;
+            border-radius: 5px;
+            font-size: 1em;
+            resize: vertical;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ff1493, #ffa500);
+        }
+        .confessions {
+            margin-top: 30px;
+        }
+        .confession {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #ff69b4;
+            border-radius: 5px;
+        }
+        .response-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .response-btn {
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .response-btn:hover {
+            background: linear-gradient(45deg, #ff1493, #ffa500);
+        }
+        .show-gallery-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .show-gallery-btn:hover {
+            background: linear-gradient(45deg, #ff1493, #ffa500);
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 0.5s ease;
+        }
+        .gallery.hidden {
+            display: none;
+        }
+        .photo {
+            width: 100%;
+            max-width: 600px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        .music-controls {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        .music-controls select, .music-controls button {
+            margin: 5px;
+            padding: 10px;
+            border: 2px solid #ffb3d9;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .music-controls button {
+            background: #ff69b4;
+            color: white;
+            cursor: pointer;
+        }
+        .music-controls button:hover {
+            background: #ff1493;
+        }
+        .current-song {
+            font-weight: bold;
+            color: #ff1493;
+            margin-top: 10px;
+        }
+        /* Fireworks animation */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: explode 2s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        /* Butterfly animation */
+        .butterfly {
+            position: absolute;
+            font-size: 2em;
+            color: #ff69b4;
+            animation: fly 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes fly {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(100px) translateY(-50px) rotate(90deg); }
+            50% { transform: translateX(200px) translateY(0) rotate(180deg); }
+            75% { transform: translateX(300px) translateY(-30px) rotate(270deg); }
+            100% { transform: translateX(400px) translateY(0) rotate(360deg); }
+        }
+        .butterfly:nth-child(odd) {
+            animation-duration: 12s;
+        }
+        .butterfly:nth-child(even) {
+            animation-duration: 15s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Confess for u Bilqis 🦋🌸</h1>
+        <p class="romantic-message">gw udah lama suka sama lu cuma gw baru berani bilang sekarang, mungkin untuk sekarang lu belum tau gw siapa, inti nya gw ingin menyampaikan perasaan gw, dan sorry kalo gw ganggu dan juga sorry kalo alay, tapi inilah effort gw, walaupun agak telat but happy new year for u. ✨< ✨</p>
+    </header>
+    <div class="container">
+        <form id="confessionForm">
+            <textarea id="message" placeholder="Tulis perasaanmu di sini... (Anonim atau dengan nama)" required></textarea>
+            <button type="submit">Kirim pesan buat gw (yang buat web ini)</button>
+        </form>
+        <div class="confessions" id="confessionsList">
+            <h2>Pesan ⤵️</h2>
+        </div>
+        <div class="response-buttons">
+        <!-- Kontrol Musik -->
+        <div class="music-controls">
+            <h3>Pilih Musik  🎶</h3>
+            <select id="songSelect">
+                <option value="0">Pilih Lagu...</option>
+                <option value="1">Lagu 1: Amazing-Rex Orange County</option>
+                <option value="2">Lagu 2: Surat Cinta Untuk Starla</option>
+                <option value="3">Lagu 3: Hargai Aku - Armada</option>
+            </select>
+            <button id="playPauseBtn">Play</button>
+            <div class="current-song" id="currentSong">Lagu yang dipilih: Tidak ada</div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="backgroundMusic" loop>
+        <source id="audioSource" src="" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutaran audio.
+    </audio>
+
+    <script>
+        // Array lagu
+        const songs = [
+            { title: 'Tidak ada', src: '' },
+            { title: 'Rex Orange County - Amazing', src: 'lagu.mp3' }, // Ganti dengan path asli
+            { title: 'Surat Cinta Untuk Starla', src: 'lagu2.mp3' }, // Ganti dengan path asli
+            { title: 'Armada - Hargai aku', src: 'lagu3.mp3' } // Ganti dengan path asli
+        ];
+
+        const audio = document.getElementById('backgroundMusic');
+        const audioSource = document.getElementById('audioSource');
+        const songSelect = document.getElementById('songSelect');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const currentSong = document.getElementById('currentSong');
+
+        // Fungsi pilih lagu
+        songSelect.addEventListener('change', function() {
+            const selectedIndex = this.value;
+            if (selectedIndex > 0) {
+                audioSource.src = songs[selectedIndex].src;
+                audio.load();
+                currentSong.textContent = `Lagu yang dipilih: ${songs[selectedIndex].title}`;
+                playPauseBtn.textContent = 'Play';
+            } else {
+                currentSong.textContent = 'Lagu yang dipilih: Tidak ada';
+            }
+        });
+
+        // Fungsi play/pause
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                this.textContent = 'Pause';
+            } else {
+                audio.pause();
+                this.textContent = 'Play';
+            }
+        });
+
+        // Fireworks
+        function createFireworks() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = Math.random() * window.innerWidth + 'px';
+                    firework.style.top = Math.random() * window.innerHeight + 'px';
+                    document.body.appendChild(firework);
+                    setTimeout(() => firework.remove(), 2000);
+                }, Math.random() * 2000);
+            }
+        }
+        window.addEventListener('load', createFireworks);
+
+        // Butterflies
+        function createButterflies() {
+            for (let i = 0; i < 25; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.className = 'butterfly';
+                butterfly.textContent = '🦋';
+                butterfly.style.left = Math.random() * window.innerWidth + 'px';
+                butterfly.style.top = Math.random() * window.innerHeight + 'px';
+                butterfly.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(butterfly);
+            }
+        }
+        window.addEventListener('load', createButterflies);
+
+        // Form submission
+        document.getElementById('confessionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = document.getElementById('message').value;
+            if (message.trim()) {
+                let confessions = JSON.parse(localStorage.getItem('confessions')) || [];
+                confessions.push({ text: message, date: new Date().toLocaleString() });
+                localStorage.setItem('confessions', JSON.stringify(confessions));
+                displayConfessions();
+                document.getElementById('message').value = '';
+                alert('Perasaanmu telah dikirim! Semoga Bilqis merasakannya. 🌟');
+                createFireworks();
+            }
+        });
+
+        // Response buttons
+        document.getElementById('btnPunya').addEventListener('click', function() {
+            sendResponse('Punya');
+        });
+        document.getElementById('btnTidak').addEventListener('click', function() {
+            sendResponse('Tidak');
+        });
+
+        function sendResponse(answer) {
+            const timestamp = new Date().toLocaleString();
+            const subject = 'Jawaban dari Confession Website';
+            const body = `Jawaban Bilqis: ${answer}\nWaktu: ${timestamp}\n\nIni adalah respons otomatis dari website confession.`;
+            const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; // Ganti email
+            window.location.href = mailtoLink;
+            alert(`Jawaban "${answer}" telah disiapkan untuk dikirim ke pemilik web via email. Pastikan kirim emailnya!`);
+            let responses = JSON.parse(localStorage.getItem('responses')) || [];
+            responses.push({ answer: answer, date: timestamp });
+            localStorage.setItem('responses', JSON.stringify(responses));
+        }
+
+        // Display confessions
+        function displayConfessions() {
+            const list = document.getElementById('confessionsList');
+            list.innerHTML = '<h2>Confession Terbaru</h2>';
+            const confessions = JSON.parse(localStorage.getItem('confessions')) || [];
+            confessions.forEach(conf => {
+                const div = document.createElement('div');
+                div.className = 'confession';
+                div.innerHTML = `<p>${conf.text}</p><small>${conf.date}</small>`;
+                list.appendChild(div);
+            });
+        }
+        displayConfessions();
+
+        // Toggle galeri foto
+        document.getElementById('showGalleryBtn').addEventListener('click', function() {
+            const gallery = document.getElementById('photoGallery');
+            if (gallery.classList.contains('hidden')) {
+                gallery.classList.remove('hidden');
+                this.textContent = 'Sembunyikan Foto Bilqis 😊';
+            } else {
+                gallery.classList.add('hidden');
+                this.textContent = 'Lihat Foto Bilqis 💖';
+            }
+        });
+    </script>
+</body>
+</html>
